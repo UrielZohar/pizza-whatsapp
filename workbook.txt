@@ -1,0 +1,24 @@
+http://pirzul-dor.co.il/
+
+- To generate WA send message - 
+
+
+/*
+var yourNumber = "אנא צור איתי קשר"
+var yourMessage = "+972507974127"
+
+// %20 mean space in link
+// If you already had an array then you just join them with '%20'
+// easy right
+
+function sendWhastappMsg() {
+  number = yourNumber
+  message = yourMessage.split(' ').join('%20');
+
+  return 'https://api.whatsapp.com/send?phone=' + number + '&text=%20' + message;
+
+}
+
+sendWhastappMsg();
+
+*/
