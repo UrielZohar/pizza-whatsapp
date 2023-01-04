@@ -27,7 +27,6 @@
     "start": "node server.js",
     "start-dev": "webpack-dev-server",
     "build": "webpack --mode production",
-    "postbuild": "node server.js",
     "stage": "node server.js"
   },
   "repository": {
