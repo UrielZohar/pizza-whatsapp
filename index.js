@@ -3,9 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import "./scss/style.scss";
 
-
-
-
 // Your code to run since DOM is loaded and ready
 if (window.innerWidth > 690) {
   document.getElementsByTagName('body')[0].classList.add("desktop-mode");

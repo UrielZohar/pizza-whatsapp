@@ -1,6 +1,6 @@
 http://pirzul-dor.co.il/
 
-- To generate WA send message - 
+- To generate WA send message -
 
 
 /*
@@ -22,3 +22,5 @@ function sendWhastappMsg() {
 sendWhastappMsg();
 
 */
+
+<script type="text/javascript" src="./main.bundle.js"></script>
