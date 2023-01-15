@@ -15,7 +15,17 @@
                     src="./assets/logo.png"/>
             </div>
         </div>
-        <div class="row section section-2">
+        <div class="row section section-2 pictures-section">
+          <div class="col-md-4 col-sm-12 col-12 item d-sm-block">
+              <div class="img-wrapper-fit">
+                  <img
+                      src="./assets/pizza1.png"
+                      class="pizza-pic"
+                      data-pizza-type="type1"/>
+              </div>
+          </div>
+      </div>
+        <div class="row section section-3">
             <div class="col-sm-12 col-12 col-md-12">
                 <h2 class="description">
                     פיצה שאקי - זהירות ממכר !!!
@@ -25,47 +35,37 @@
                 </h3>
             </div>
         </div>
-        <div class="row section section-3 pictures-section">
-            <div class="col-md-4 col-sm-12 col-12 item d-sm-block">
-                <div class="img-wrapper-fit">
-                    <img
-                        src="./assets/pizza1.png"
-                        class="pizza-pic"
-                        data-pizza-type="type1"/>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-12 col-12 item d-sm-block">
-                <div class="img-wrapper-fit">
-                    <img
-                        src="./assets/pizza2.jpg"
-                        class="pizza-pic"
-                        data-pizza-type="type2"/>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-12 col-12 item d-sm-block">
-                <div class="img-wrapper-fit">
-                    <img
-                        src="./assets/pizza3.jpg"
-                        class="pizza-pic"
-                        data-pizza-type="type3"/>
-                </div>
-            </div>
+        <div class="row section section-4">
+          <div class="col-sm-12 col-12 col-md-12">
+            <h3>
+              <select name="pizzaTypes" id="pizzaTypes">
+                <option disabled selected value>בחר את סוג הפיצה</option>
+                <option value="sambusak">סמבוסק</option>
+                <option value="normal">רגיל</option>
+                <option value="thick">עבה</option>
+                <option value="thin">דקה</option>
+              </select>
+            </h3>
+          </div>
         </div>
         <div class="row section section-4">
+          <div class="col-sm-12 col-12 col-md-12">
+            <h3>
+              <select name="pizzaAdditions" id="pizzaAdditions">
+                <option disabled selected value>בחר את התוספת</option>
+                <option value="none">ללא</option>
+                <option value="olives">זיתים</option>
+                <option value="corn">תירס</option>
+                <option value="eggplant">חציל</option>
+              </select>
+            </h3>
+          </div>
+        </div>
+        <div class="row section section-6">
             <div class="col-sm-12 col-12 col-md-12">
                 <h3>
                     שלב שני - שלח הזמנתך בווצאפ
                 </h3>
-                <!--
-                <a
-                    class="wa-link"
-                    href="javascript:;">
-                    <div class="img-wrapper-fit social-media">
-                    <img
-                        src="./assets/social-WA.png"/>
-                    </div>
-                </a>
-                -->
                 <a
                     class="wa-link"
                     href="javascript:;">
@@ -77,7 +77,7 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="./main.bundle.js"></script>
+    <script type="text/javascript" src="/clientapp/dist/main.bundle.js"></script>
 </body>
 
 </html>

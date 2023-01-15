@@ -22,5 +22,16 @@ function sendWhastappMsg() {
 sendWhastappMsg();
 
 */
+Change between those when you deploy the app - 
+
+Dev:
 
 <script type="text/javascript" src="./main.bundle.js"></script>
+
+Build:
+<script type="text/javascript" src="/clientapp/dist/main.bundle.js"></script>
+
+For running this project use - 
+
+ node -v
+v14.21.0

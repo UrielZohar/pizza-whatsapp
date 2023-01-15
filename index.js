@@ -11,7 +11,7 @@ if (window.innerWidth > 690) {
 }
 
 // get all pizza pictures
-const allPizzaPics = document.querySelectorAll('.pizza-pic');
+const pizzaTypesElement = document.querySelector('#pizzaTypes');
 // get the a href element
 const waLinkElement = document.querySelector('.wa-link');
 
@@ -37,27 +37,19 @@ const createWaMsg = (pizzaText, price) => {
 }
 
 const pizzaTypeToTextMap = {
-  'type1': {text: 'עם פטריות ובצל ירוק', price: 50} ,
-  'type2': {text: 'עם מוצרלה ובזיליקום', price: 50},
-  'type3': {text: 'עם רוטב פיצה וביצים', price: 50},
-}
-
-// remove all marks
-const removeAllMarks = () => {
-  allPizzaPics.forEach(elm => elm.classList.remove('marked'));
+  'sambusak': {text: 'סמבוסק', price: 50} ,
+  'thick': {text: 'עבה', price: 50},
+  'thin': {text: 'דקה', price: 50},
+  'normal': {text: 'רגילה', price: 50},
 }
 
 const onPizzaPicClick = (event => {
-  // remove marked for all
-  removeAllMarks();
   // get the pizza type
-  const pizzaType = event.target.getAttribute('data-pizza-type');
+  const pizzaType = event.target.value;
   // update the WA message
   const waMsg = createWaMsg(pizzaTypeToTextMap[pizzaType].text, pizzaTypeToTextMap[pizzaType].price);
   const waLink = createWaLink(waMsg);
   setWaLinkElementHref(waLink);
-  // add marked to the current one
-  event.target.classList.add('marked');
 });
 
-allPizzaPics.forEach(elm => elm.addEventListener('click', onPizzaPicClick));
+pizzaTypesElement.addEventListener('change', onPizzaPicClick);
