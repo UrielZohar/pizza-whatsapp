@@ -3,7 +3,12 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
     <title>פיצה שאקי</title>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 </head>
 
 <body>
@@ -39,11 +44,7 @@
           <div class="col-sm-12 col-12 col-md-12">
             <h3>
               <select name="pizzaTypes" id="pizzaTypes">
-                <option disabled selected value>בחר את סוג הפיצה</option>
-                <option value="sambusak">סמבוסק</option>
-                <option value="normal">רגיל</option>
-                <option value="thick">עבה</option>
-                <option value="thin">דקה</option>
+                <option disabled selected value>בחר את הסוג</option>
               </select>
             </h3>
           </div>
@@ -51,12 +52,8 @@
         <div class="row section section-4">
           <div class="col-sm-12 col-12 col-md-12">
             <h3>
-              <select name="pizzaAdditions" id="pizzaAdditions">
+              <select name="pizzaToppings" id="pizzaToppings">
                 <option disabled selected value>בחר את התוספת</option>
-                <option value="none">ללא</option>
-                <option value="olives">זיתים</option>
-                <option value="corn">תירס</option>
-                <option value="eggplant">חציל</option>
               </select>
             </h3>
           </div>
