@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <title>פיצה שאקי</title>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row section section-1">
+            <div class="img-wrapper-fit">
+                <img
+                    class="logo-image"
+                    src="./assets/logo.png"/>
+            </div>
+        </div>
+        <div class="row section section-2 pictures-section">
+          <div class="col-md-4 col-sm-12 col-12 item d-sm-block">
+              <div class="img-wrapper-fit">
+                  <img
+                      src="./assets/pizza1.jpeg"
+                      class="pizza-pic"
+                      data-pizza-type="type1"/>
+              </div>
+          </div>
+      </div>
+        <div class="row section section-3">
+            <div class="col-sm-12 col-12 col-md-12">
+                <h2 class="description">
+                    פיצה שאקי - זהירות ממכר !!!
+                </h2>
+                <h3 class="description">
+                    שלב ראשון - בחר את הפיצה שלך:
+                </h3>
+            </div>
+        </div>
+        <div class="row section section-4">
+          <div class="col-sm-12 col-12 col-md-12">
+            <h3>
+              <select name="pizzaTypes" id="pizzaTypes">
+                <option disabled selected value>בחר את הסוג</option>
+              </select>
+            </h3>
+          </div>
+        </div>
+        <div class="row section section-5">
+          <div class="col-sm-12 col-12 col-md-12">
+            <h3>
+              <select name="pizzaToppings" id="pizzaToppings">
+                <option disabled selected value>בחר את התוספת</option>
+              </select>
+            </h3>
+          </div>
+        </div>
+        <div class="row section section-6">
+            <div class="col-sm-12 col-12 col-md-12">
+                <h3>
+                    שלב שני - שלח הזמנתך בווצאפ
+                </h3>
+                <a
+                    class="wa-link"
+                    href="javascript:;">
+                    <div class="img-wrapper-fit social-media">
+                      <img src="./assets/social-WA.png" class="social-wa-img"/>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./main.bundle.js"></script>
+</body>
+
+</html>
