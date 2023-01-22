@@ -31,7 +31,7 @@ const setWaLinkElementHref = (href) => {
 const createWaMsg = (pizzaText, toppingText, price) => {
   return `שלום שאקי 🍕 %0a
 אני רוצה  ${pizzaText}%0a
-${toppingText ? `עם תוספת ${toppingText}%0a` : 'בלי תוספות'}
+${toppingText ? `עם תוספת ${toppingText}%0a` : 'בלי תוספות%0a'}
 סה״כ: ${price} ש״ח%0a
 😍`;
 }
