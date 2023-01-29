@@ -95,7 +95,7 @@ const app = firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 
-Promise.all([db.collection("pizza-types").get(), db.collection("toppings").get()]).then(([pizzaTypeQuerySnapshot, toppingsQuerySnapshot]) => {
+Promise.all([db.collection("pizza-types").where("enabled", "==", true).get(), db.collection("toppings").where("enabled", "==", true).get()]).then(([pizzaTypeQuerySnapshot, toppingsQuerySnapshot]) => {
   pizzaTypeQuerySnapshot.forEach((doc) => {
     allTypes.push(doc.data());
   });
