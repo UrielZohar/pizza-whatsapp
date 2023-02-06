@@ -40,9 +40,21 @@ const allTypes = [], allToppings = [];
 
 const updatePizzaToppingsElement = pizzaType => {
   pizzaToppingsElement.innerHTML = `
-  <option disabled selected value>בחר את התוספת</option>
+  <option disabled selected value placeholdered>בחר את התוספת</option>
   ${allToppings.filter(({type}) => type === pizzaType).map(({type, text, price}) => `<option type="${type}" price=${price} text="${text}">${text}</option>`).join('')}
 `;
+}
+
+const enablePizzaToppingsElement = () => {
+  pizzaToppingsElement.removeAttribute("disabled");
+}
+
+const addPizzaToppingsElementMultiple = () => {
+  pizzaToppingsElement.setAttribute("multiple", "");
+}
+
+const removePizzaToppingsElementMultiple = () => {
+  pizzaToppingsElement.removeAttribute("multiple");
 }
 
 let pizzaText = '', pizzaPrice = 0;
@@ -54,22 +66,45 @@ const onPizzaClick = (event => {
   pizzaText = selectedOption.getAttribute("text");
   pizzaPrice = +selectedOption.getAttribute("price");
   const pizzaType = selectedOption.getAttribute("type");
+  const isMultipleToppings = selectedOption.getAttribute("isMultipleToppings") === 'true';
   // update the WA message
   const waMsg = createWaMsg(pizzaText, '', pizzaPrice);
   const waLink = createWaLink(waMsg);
   setWaLinkElementHref(waLink);
+  enablePizzaToppingsElement();
   updatePizzaToppingsElement(pizzaType);
+  if (isMultipleToppings) {
+    addPizzaToppingsElementMultiple();
+  } else {
+    removePizzaToppingsElementMultiple();
+  }
 });
 
 const onToppingClick = (event => {
-  const selectedOption = event.target[event.target.options.selectedIndex];
+  // get the selected options
+  const selectedOptions = Array.from(pizzaToppingsElement.selectedOptions);
+  const allOptions = Array.from(pizzaToppingsElement.options);
+  console.log(selectedOptions.length);
   // update the price
-  const toppingPrice = +selectedOption.getAttribute("price");
-  const toppingText = selectedOption.getAttribute("text");
+  const toppingPrice = Math.max((selectedOptions.length * 5) - 5, 0);
+  const toppingText = selectedOptions.map(({text}) => text).join(', ');
   // update the WA message
   const waMsg = createWaMsg(pizzaText, toppingText, pizzaPrice + toppingPrice);
   const waLink = createWaLink(waMsg);
   setWaLinkElementHref(waLink);
+  // Disable the toppings if they are more two
+  if (selectedOptions.length > 2) {
+    allOptions.forEach(option => {
+      option.setAttribute("disabled", "");
+    });
+    selectedOptions.forEach(option => {
+      option.removeAttribute("disabled");
+    });
+  } else {
+    allOptions.forEach(option => {
+      !option.hasAttribute("placeholdered") && option.removeAttribute("disabled");
+    });
+  }
 });
 
 pizzaTypesElement.addEventListener('change', onPizzaClick);
@@ -105,7 +140,13 @@ Promise.all([db.collection("pizza-types").where("enabled", "==", true).get(), db
 
   pizzaTypesElement.innerHTML = `
     <option disabled selected value>בחר את הסוג</option>
-    ${allTypes.map(({type, text, price}) => `<option type="${type}" price=${price} text="${text}">${text}</option>`).join('')}
+    ${allTypes.map(({type, text, price, isMultipleToppings}) => `<option 
+      type="${type}" 
+      price=${price} 
+      text="${text}"
+      isMultipleToppings="${isMultipleToppings}">
+        ${text}
+    </option>`).join('')}
   `;
 });
 
