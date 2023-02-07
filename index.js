@@ -21,7 +21,14 @@ const pizzaToppingsElement = document.querySelector('#pizzaToppings');
 const waLinkElement = document.querySelector('.wa-link');
 
 // text constants
-const pizzaPhoneNumber = '972544832779';
+let pizzaPhoneNumber = '972544832779';
+// fetch the phone number from the API
+fetch("https://otblh8o1gi.execute-api.us-east-2.amazonaws.com/pizza-sahki-stage/getPhoneNumber")
+  .then(response => response.text())
+  .then((response) => {
+    pizzaPhoneNumber = response;
+})
+.catch(err => console.log(err));
 // const waLinkPrefix = 'https://web.whatsapp.com/send?text=';
 const waLinkPrefix = 'whatsapp://send?text=';
 const waLinkSuffix = `&phone=${pizzaPhoneNumber}`;
