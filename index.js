@@ -96,9 +96,14 @@ const onPizzaClick = (event => {
 const onToppingClick = (event => {
   // get the selected options
   const selectedOptions = Array.from(pizzaToppingsElement.selectedOptions);
-  console.log(selectedOptions.length);
   // update the price
-  const toppingPrice = Math.max(((selectedOptions.length - 1) * 5) - 5, 0);
+  let toppingPrice = 0;
+  const selectedPizzaType = pizzaTypesElement.options[pizzaTypesElement.options.selectedIndex].getAttribute("type") ;
+  if (selectedPizzaType === 'toast') {
+    toppingPrice = Math.max(((selectedOptions.length) * 5) - 10, 0);
+  } else {
+    toppingPrice = Math.max(((selectedOptions.length) * 5), 0);
+  }
   const toppingText = selectedOptions.filter(option => !option.hasAttribute("placeholdered")).map(({text}) => text).join(', ');
   // update the WA message
   const waMsg = createWaMsg(pizzaText, toppingText, pizzaPrice + toppingPrice);

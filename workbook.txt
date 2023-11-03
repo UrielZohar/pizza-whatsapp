@@ -72,4 +72,8 @@ querySnapshot.forEach((doc) => {
 
 //// 
 
-You have to copy the html manually to the dist
+- Note the note version should be on 8.9.4 version
+
+- You have to run "npm run build" in order to build the dist folder
+
+- You have to copy the index.html and the assets folder manually to the dist folder
