@@ -99,6 +99,7 @@ const onToppingClick = (event => {
   // update the price
   let toppingPrice = 0;
   const selectedPizzaType = pizzaTypesElement.options[pizzaTypesElement.options.selectedIndex].getAttribute("type") ;
+  // don't change the "selectedOptions.length - 1" in mobile it's count the place holder as selected
   if (selectedPizzaType === 'toast') {
     toppingPrice = Math.max(((selectedOptions.length - 1) * 5) - 10, 0);
   } else {
